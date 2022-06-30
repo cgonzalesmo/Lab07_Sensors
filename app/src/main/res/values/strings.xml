@@ -6,4 +6,5 @@
     <string name="magnetometer_x_value">X Value: %1$.2f</string>
     <string name="magnetometer_y_value">Y Value: %1$.2f</string>
     <string name="magnetometer_z_value">Z Value: %1$.2f</string>
+    <string name="orientation">Orientacion: %1$s </string>
 </resources>
