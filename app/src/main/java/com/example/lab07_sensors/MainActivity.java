@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
         //agregue lógica para cada sensor donde el botón esté deshabilitado si ese sensor específico no está
 
-
         if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
 
             //establecer Listener para el botón
@@ -49,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             //botón de desactivación si el sensor no está disponible
             accelerometerBtn.setEnabled(false);
         }
-
 
         if (sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD) != null) {
 
