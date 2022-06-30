@@ -74,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onOrientationChanged(int orientation) {
                 if (orientation == OrientationEventListener.ORIENTATION_UNKNOWN) {
-                    return;  //手机平放时，检测不到有效的角度
+                    return;  //No se detecta ningún ángulo válido cuando el teléfono está en posición horizontal
                 }
-                //只检测是否有四个角度的改变
+                //Sólo detecta si hay cuatro cambios de ángulo
                 if (orientation > 350 || orientation < 10) { //0度
                     orientation = 0;
                     orientationTV.setText(getResources().getString(R.string.orientation, "Vertical 1"));
