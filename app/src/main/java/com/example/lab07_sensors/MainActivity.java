@@ -17,50 +17,50 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //set instance of Android's sensorManager to access sensor services
+        //establecer una instancia de sensorManager de Android para acceder a los servicios de sensores
         SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
-        //set up all button instances
+        //configurar todas las instancias de botón
         Button accelerometerBtn = findViewById(R.id.accelerometerBtn);
         Button magnetometerBtn = findViewById(R.id.magnetometerBtn);
 
-        //add logic for each sensor where the button is disabled if that specific sensor is
+        //agregue lógica para cada sensor donde el botón esté deshabilitado si ese sensor específico no está
 
 
         if (sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null) {
 
-            //set listener for button
+            //establecer Listener para el botón
             accelerometerBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    //add intent that takes use to the sensor's activity if the button pressed
+                    //agregar el intent que se utiliza para la actividad del sensor si se presiona el botón
                     Intent accelerometerIntent = new Intent(MainActivity.this, accelerometerActivity.class);
                     startActivity(accelerometerIntent);
                 }
             });
         } else {
 
-            //disable button if sensor is not available
+            //botón de desactivación si el sensor no está disponible
             accelerometerBtn.setEnabled(false);
         }
 
 
         if (sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD) != null) {
 
-            //set listener for button
+            //establecer Listener para el botón
             magnetometerBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    //add intent that takes use to the sensor's activity if the button pressed
+                    //agregar el intent que se utiliza para la actividad del sensor si se presiona el botón
                     Intent magnetometerIntent = new Intent(MainActivity.this, magnetometerActivity.class);
                     startActivity(magnetometerIntent);
                 }
             });
         } else {
 
-            //disable button if sensor is not available
+            //botón de desactivación si el sensor no está disponible
             magnetometerBtn.setEnabled(false);
         }
 

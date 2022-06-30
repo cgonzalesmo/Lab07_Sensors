@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class accelerometerActivity extends AppCompatActivity implements SensorEventListener {
 
-    //set instances for the sensorManager, accelerometer, and textViews
+    //establecer instancias para sensorManager, acelerómetro y textViews
     private SensorManager sensorManager;
     private Sensor accelerometer;
     private TextView xValue;
@@ -21,13 +21,12 @@ public class accelerometerActivity extends AppCompatActivity implements SensorEv
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        //get the current values of the accelerometer for each axis
+        //obtener los valores actuales del acelerómetro para cada eje
         float current_xValue = sensorEvent.values[0];
         float current_yValue = sensorEvent.values[1];
         float current_zValue = sensorEvent.values[2];
 
-        //display the current values of the  accelerometer for each axis onto the
-        //textView widgets
+        //mostrar los valores actuales del acelerómetro para cada eje en los widgets de textview
         xValue.setText(getResources().getString(R.string.accelerometer_x_value, current_xValue));
         yValue.setText(getResources().getString(R.string.accelerometer_y_value, current_yValue));
         zValue.setText(getResources().getString(R.string.accelerometer_z_value, current_zValue));
@@ -36,24 +35,24 @@ public class accelerometerActivity extends AppCompatActivity implements SensorEv
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
-        //accelerometer does not report accuracy changes
+        //el acelerómetro no informa cambios de precisión
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accelerometer);
 
-        //retrieve widgets
+        //recuperar widgets
         xValue = findViewById(R.id.xValue);
         yValue = findViewById(R.id.yValue);
         zValue = findViewById(R.id.zValue);
 
-        //define instances
+        //definir instances
         sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     }
 
-    //register the listener once the activity starts
+    //registrar al listener una vez que comience la actividad
     @Override
     protected void onStart() {
         super.onStart();
@@ -64,7 +63,7 @@ public class accelerometerActivity extends AppCompatActivity implements SensorEv
         }
     }
 
-    //stop the sensor when the activity stops to reduce battery usage
+    //detenga el sensor cuando la actividad se detenga para reducir el uso de la batería
     @Override
     protected void onStop() {
         super.onStop();

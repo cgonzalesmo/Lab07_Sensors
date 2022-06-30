@@ -19,12 +19,12 @@ public class magnetometerActivity extends AppCompatActivity implements SensorEve
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        //retrieve the current values of the magnetometer for each axis
+        //recuperar los valores actuales del magnetómetro para cada eje
         float current_xValue = sensorEvent.values[0];
         float current_yValue = sensorEvent.values[1];
         float current_zValue = sensorEvent.values[2];
 
-        //display each value onto its corresponding textView
+        //mostrar cada valor en su textView correspondiente
         xValue.setText(getResources().getString(R.string.magnetometer_x_value, current_xValue));
         yValue.setText(getResources().getString(R.string.magnetometer_y_value, current_yValue));
         zValue.setText(getResources().getString(R.string.magnetometer_z_value, current_zValue));
@@ -33,7 +33,7 @@ public class magnetometerActivity extends AppCompatActivity implements SensorEve
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
 
-        //magnetometer does not report accuracy changes
+        //magnetómetro no informa cambios de precisión
     }
 
     @Override
@@ -41,17 +41,17 @@ public class magnetometerActivity extends AppCompatActivity implements SensorEve
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_magnetometer);
 
-        //retrieve widgets
+        //recuperar widgets
         xValue = findViewById(R.id.xValue);
         yValue = findViewById(R.id.yValue);
         zValue = findViewById(R.id.zValue);
 
-        //define instances
+        //definir instances
         sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
         magnetometer = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
     }
 
-    //register the listener once the activity starts
+    //registrar el listener una vez que comience la actividad
     @Override
     protected void onStart() {
         super.onStart();
@@ -62,7 +62,7 @@ public class magnetometerActivity extends AppCompatActivity implements SensorEve
         }
     }
 
-    //stop the sensor when the activity stops to reduce battery usage
+    //detenga el sensor cuando la actividad se detenga para reducir el uso de la batería
     @Override
     protected void onStop() {
         super.onStop();
